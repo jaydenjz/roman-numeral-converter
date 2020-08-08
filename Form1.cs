@@ -95,6 +95,7 @@ namespace RomanNumeralConverter
                 // not end of string; current number less than next number (eg.IV);
                 if(i + 1 < roman.Length && current < GetNumberByRoman(roman[i + 1]))
                 {
+                    // current is one of I,X,C; next number is 10x larger than current; current does not appear more than twice
                     if("IXC".IndexOf(roman[i]) == -1 || GetNumberByRoman(roman[i + 1]) > (current * 10) || roman.Split(roman[i]).Length > 3)
                     {
                         return "**Invalid Roman Numeral**";
